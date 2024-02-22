@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  rinhadebackend.api:
+    image: ${DOCKER_REGISTRY-}rinhadebackendapi
+    build:
+      context: RinhaDeBackend.API
+      dockerfile: Dockerfile
