@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDataContext>(options =>
 {
-    options.UseNpgsql("postgresql://localhost/rinhadb?user=admin&password=secret");
+    options.UseNpgsql("postgresql://localhost:15432/rinhadb?user=postgres&password=password");
 });
 var app = builder.Build();
 

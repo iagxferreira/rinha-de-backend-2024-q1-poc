@@ -1,14 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RinhaDeBackend.API.ViewModels.Client;
 
 namespace RinhaDeBackend.API.Controllers
 {
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        [HttpGet("/clientes/[id]/transacoes")]
-        public async Task<IActionResult> Index([FromRoute] int id)
+        [HttpPost("/clientes/{id:int}/transacoes")]
+        public async Task<IActionResult> GetTransactions(
+            [FromRoute] int id,
+            [FromBody] CreateClientTransactionRequest body
+            )
         {
-            return Ok();
+            return Ok(new CreateClientTransactionResponse());
+        }
+
+        [HttpGet("/clientes/{id:int}/extrato")]
+        public async Task<IActionResult> GetReports(
+            [FromRoute] int id,
+            [FromBody] CreateClientTransactionRequest body
+        )
+        {
+            return Ok(new ClientReportResponse());
         }
     }
 }
